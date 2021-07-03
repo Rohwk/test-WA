@@ -1,0 +1,77 @@
+Partie théorique : XPATH (environ 20 minutes)
+Cette partie est théorique.
+L'objectif est de répondre à des questions sur le langage XPath, en se documentant si nécessaire sur internet. Connaître le langage XPath n'est pas un pré-requis.
+
+Remarque : Cette partie ne nécessite pas d'exécuter du code. Essayer de faire fonctionner un code est fortement déconseillé, le débuggage devenant rapidement une activité chronophage.
+----------------------------------------------------------------------------------------------------------------------------
+
+<library>
+	<book>
+		<title>toto1</title>
+		<author>titi</author>
+	</book>
+	<book type="doc">
+		<title>toto2</title>
+		<author>titi</author>
+	</book>
+	<book type="roman">
+		<title>toto3</title>
+		<author>titi</author>
+	</book>
+	<book type="bd">
+		<title>toto4</title>
+		<author>titi2</author>
+	</book>
+	<library>
+		<book type="roman">
+			<title>toto5</title>
+			<author>titi</author>
+		</book>
+	</library>
+</library>
+
+Écrire les chaînes XPath permettant de :
+
+1) Retourner tous les éléments book
+//book
+
+2) Retourner tous les éléments title ayant comme parent un élément book avec un attribut type égal à roman
+//book[@type='roman']/title
+
+3) Retourner le nombre d'éléments book ayant un attribut type égal à bd
+count(//book[@type='bd'])
+
+4) Que renvoie la requête XPath suivante :  /library/library/ancestor-or-self::library
+Renvoie :
+	<library>
+		<book type="roman">
+			<title>toto5</title>
+			<author>titi</author>
+		</book>
+	</library>
+
+et le library parent :
+<library>
+	<book>
+		<title>toto1</title>
+		<author>titi</author>
+	</book>
+	<book type="doc">
+		<title>toto2</title>
+		<author>titi</author>
+	</book>
+	<book type="roman">
+		<title>toto3</title>
+		<author>titi</author>
+	</book>
+	<book type="bd">
+		<title>toto4</title>
+		<author>titi2</author>
+	</book>
+	<library>
+		<book type="roman">
+			<title>toto5</title>
+			<author>titi</author>
+		</book>
+	</library>
+</library>
