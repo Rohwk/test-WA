@@ -40,7 +40,7 @@ class PersonneController extends AbstractController
                 400
             );
         }
-        if (!$this->checkDate($request->query->get('date_naissance'))) {
+        if (!$this->checkDate($request->request->get('date_naissance'))) {
             return $this->json(
                 [
                     'message' => 'Error max age',
